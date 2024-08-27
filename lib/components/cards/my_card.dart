@@ -1,23 +1,33 @@
 import 'package:elibrary/components/error_image.dart';
-import 'package:elibrary/pages/home/publications/publication_detail.dart';
 import 'package:flutter/material.dart';
 
-class PublicationCard extends StatelessWidget {
-  const PublicationCard({super.key});
+class MyCard extends StatelessWidget {
+  const MyCard({
+    super.key,
+    this.id = 0,
+    this.title = '',
+    this.imageUrl = '',
+    this.onTap,
+    this.aspectRatio = 1/1,
+    this.width = 200,
+  });
+
+  final int id;
+  final String title;
+  final String imageUrl;
+  final void Function()? onTap;
+  final double aspectRatio;
+  final double width;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        final route =
-            MaterialPageRoute(builder: (context) => PublicationDetail());
-        Navigator.push(context, route);
-      },
+      onTap: onTap,
       child: Card(
         elevation: 0,
         child: Container(
-          width: 200,
-          padding: EdgeInsets.all(4),
+          width: width,
+          padding: const EdgeInsets.all(4),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
               color: Colors.white,
@@ -32,11 +42,11 @@ class PublicationCard extends StatelessWidget {
                     ),
                     borderRadius: BorderRadius.circular(8)),
                 child: ClipRRect(
-                  borderRadius: BorderRadius.circular(8),
+                  borderRadius: BorderRadius.circular(7),
                   child: AspectRatio(
-                    aspectRatio: 6 / 9,
+                    aspectRatio: aspectRatio,
                     child: Image.network(
-                      'https://thnal.com/assets/images/publications/1724432065OsH9Om95m1.png',
+                      imageUrl,
                       width: double.infinity,
                       fit: BoxFit.cover,
                       errorBuilder: (context, error, stackTrace) {
@@ -46,7 +56,7 @@ class PublicationCard extends StatelessWidget {
                         if (progress == null) {
                           return child;
                         } else {
-                          return Center(
+                          return const Center(
                             child: CircularProgressIndicator(),
                           );
                         }
@@ -55,13 +65,13 @@ class PublicationCard extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 8,
               ),
               Padding(
-                padding: EdgeInsets.only(left: 4, right: 4),
+                padding: const EdgeInsets.only(left: 4, right: 4),
                 child: Text(
-                  'ការបោះឆ្នោតជ្រើសរើសក្រុមប្រឹក្សារាជធានី ក្រុបប្រឹក្សាខេត្ត ក្រុមប្រឹក្សាក្រុង ក្រុមប្រឹក្សាស្រុក ក្រុមប្រឹក្សាខណ្ឌ អាណត្តិទី៤',
+                  title,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),

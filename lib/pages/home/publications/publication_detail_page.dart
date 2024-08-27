@@ -2,15 +2,15 @@
 
 import 'package:elibrary/components/buttons/my_elevated_button.dart';
 import 'package:elibrary/components/cards/detail_list_card.dart';
-import 'package:elibrary/components/cards/publication_card.dart';
+import 'package:elibrary/components/cards/my_card.dart';
 import 'package:elibrary/components/my_gallery.dart';
 import 'package:elibrary/components/my_list_header.dart';
 import 'package:elibrary/pages/pdf_view_page.dart';
 import 'package:flutter/material.dart';
 
-class PublicationDetail extends StatelessWidget {
+class PublicationDetailPage extends StatelessWidget {
 
-  PublicationDetail({super.key});
+  PublicationDetailPage({super.key});
 
   final List<String> imageUrls = [
     'https://thnal.com/assets/images/publications/1724432065OsH9Om95m1.png',
@@ -140,11 +140,11 @@ class PublicationDetail extends StatelessWidget {
                   child: ListView(
                     scrollDirection: Axis.horizontal,
                     children: const [
-                      PublicationCard(),
-                      PublicationCard(),
-                      PublicationCard(),
-                      PublicationCard(),
-                      PublicationCard(),
+                      MyCard(),
+                      MyCard(),
+                      MyCard(),
+                      MyCard(),
+                      MyCard(),
                     ],
                   ),
                 ),

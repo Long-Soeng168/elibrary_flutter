@@ -1,13 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sized_box_for_whitespace
 
-import 'package:elibrary/components/cards/article_card.dart';
-import 'package:elibrary/components/cards/audio_card.dart';
-import 'package:elibrary/components/cards/bulletin_card.dart';
-import 'package:elibrary/components/cards/image_card.dart';
-import 'package:elibrary/components/cards/journal_card.dart';
-import 'package:elibrary/components/cards/publication_card.dart';
-import 'package:elibrary/components/cards/thesis_card.dart';
-import 'package:elibrary/components/cards/video_card.dart';
+import 'package:elibrary/components/cards/my_card.dart';
 import 'package:elibrary/components/my_list_header.dart';
 import 'package:flutter/material.dart';
 
@@ -47,11 +40,11 @@ class _FavoritePageState extends State<FavoritePage> {
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
-                  PublicationCard(),
-                  PublicationCard(),
-                  PublicationCard(),
-                  PublicationCard(),
-                  PublicationCard(),
+                  MyCard(),
+                  MyCard(),
+                  MyCard(),
+                  MyCard(),
+                  MyCard(),
                 ],
               ),
             ),
@@ -67,11 +60,11 @@ class _FavoritePageState extends State<FavoritePage> {
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
-                  VideoCard(),
-                  VideoCard(),
-                  VideoCard(),
-                  VideoCard(),
-                  VideoCard(),
+                  MyCard(),
+                  MyCard(),
+                  MyCard(),
+                  MyCard(),
+                  MyCard(),
                 ],
               ),
             ),
@@ -87,11 +80,11 @@ class _FavoritePageState extends State<FavoritePage> {
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
-                  AudioCard(),
-                  AudioCard(),
-                  AudioCard(),
-                  AudioCard(),
-                  AudioCard(),
+                  MyCard(),
+                  MyCard(),
+                  MyCard(),
+                  MyCard(),
+                  MyCard(),
                 ],
               ),
             ),
@@ -107,11 +100,11 @@ class _FavoritePageState extends State<FavoritePage> {
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
-                  ImageCard(),
-                  ImageCard(),
-                  ImageCard(),
-                  ImageCard(),
-                  ImageCard(),
+                  MyCard(),
+                  MyCard(),
+                  MyCard(),
+                  MyCard(),
+                  MyCard(),
                 ],
               ),
             ),
@@ -127,11 +120,11 @@ class _FavoritePageState extends State<FavoritePage> {
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
-                  BulletinCard(),
-                  BulletinCard(),
-                  BulletinCard(),
-                  BulletinCard(),
-                  BulletinCard(),
+                  MyCard(),
+                  MyCard(),
+                  MyCard(),
+                  MyCard(),
+                  MyCard(),
                 ],
               ),
             ),
@@ -147,11 +140,11 @@ class _FavoritePageState extends State<FavoritePage> {
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
-                  ArticleCard(),
-                  ArticleCard(),
-                  ArticleCard(),
-                  ArticleCard(),
-                  ArticleCard(),
+                  MyCard(),
+                  MyCard(),
+                  MyCard(),
+                  MyCard(),
+                  MyCard(),
                 ],
               ),
             ),
@@ -167,11 +160,11 @@ class _FavoritePageState extends State<FavoritePage> {
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
-                  ThesisCard(),
-                  ThesisCard(),
-                  ThesisCard(),
-                  ThesisCard(),
-                  ThesisCard(),
+                  MyCard(),
+                  MyCard(),
+                  MyCard(),
+                  MyCard(),
+                  MyCard(),
                 ],
               ),
             ),
@@ -187,11 +180,11 @@ class _FavoritePageState extends State<FavoritePage> {
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
-                  JournalCard(),
-                  JournalCard(),
-                  JournalCard(),
-                  JournalCard(),
-                  JournalCard(),
+                  MyCard(),
+                  MyCard(),
+                  MyCard(),
+                  MyCard(),
+                  MyCard(),
                 ],
               ),
             ),

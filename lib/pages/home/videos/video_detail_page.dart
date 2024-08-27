@@ -1,23 +1,58 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:elibrary/components/cards/detail_list_card.dart';
-import 'package:elibrary/components/cards/image_card.dart';
-import 'package:elibrary/components/my_gallery.dart';
+import 'package:elibrary/components/cards/my_card.dart';
 import 'package:elibrary/components/my_list_header.dart';
+import 'package:elibrary/components/my_video_player.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:video_player/video_player.dart';
 
-class ImageDetail extends StatelessWidget {
-  ImageDetail({super.key});
+class Item {
+  final String id;
+  final String title;
+  final String imageUrl;
+  final String description;
 
-  final List<String> imageUrls = [
-    'https://thnal.com/assets/images/images/thumb/1724644805cYik37Kni4.jpg',
-    'https://thnal.com/assets/images/images/thumb/1724645207ijk4Luu0MV.jpg',
-    'https://thnal.com/assets/images/images/thumb/1724645220EdDXuHwoSG.jpg',
-    'https://thnal.com/assets/images/images/1724643818BFMdOmmg49.jpg',
-    'https://thnal.com/assets/images/images/1724643416EE7dhcbSp0.jpg',
-    'https://thnal.com/assets/images/images/1724248852GktzRMNaGc.jpg',
-    'https://thnal.com/assets/images/images/1724643605gcHCupf1yN.jpg',
+  Item({
+    required this.id,
+    required this.title,
+    required this.imageUrl,
+    required this.description,
+  });
+}
+
+class VideoDetailPage extends StatelessWidget {
+  final Item item = Item(
+    id: '1',
+    title: 'Sample Publication',
+    imageUrl: 'https://via.placeholder.com/600x250',
+    description: 'This is a description of the sample publication.',
+  );
+
+  final List<Item> relatedItems = [
+    Item(
+      id: '2',
+      title: 'Related Item 1',
+      imageUrl: 'https://via.placeholder.com/120x80',
+      description: 'Description for related item 1.',
+    ),
+    Item(
+      id: '3',
+      title: 'Related Item 2',
+      imageUrl: 'https://via.placeholder.com/120x80',
+      description: 'Description for related item 2.',
+    ),
+    Item(
+      id: '4',
+      title: 'Related Item 3',
+      imageUrl: 'https://via.placeholder.com/120x80',
+      description: 'Description for related item 3.',
+    ),
   ];
+
+  VideoDetailPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +61,7 @@ class ImageDetail extends StatelessWidget {
         foregroundColor: Theme.of(context).colorScheme.primary,
         backgroundColor: Colors.transparent,
         title: Text(
-          'Image',
+          'Video',
           style: TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.bold,
@@ -49,9 +84,21 @@ class ImageDetail extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 // Start Image and Detail Section
-                
-                // Display the first image at the top
-                MyGallery(imageUrls: imageUrls),
+                // Image.network(
+                //     'https://d1csarkz8obe9u.cloudfront.net/themedlandingpages/tlp_hero_book-cover-adb8a02f82394b605711f8632a44488b.jpg?ts%20=%201698323696',
+                //     width: double.infinity,
+                //     errorBuilder: (context, error, stackTrace) {
+                //   return const ErrorImage(size: 222);
+                // }),
+                // End Image and Detail Section
+
+                // Start Video
+                MyVideoPlayer(
+                  dataSourceType: DataSourceType.network,
+                  url:
+                      'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+                ),
+                // End Video
 
                 // Start Description
                 Padding(
@@ -65,7 +112,7 @@ class ImageDetail extends StatelessWidget {
                                 fontSize: 24, fontWeight: FontWeight.bold)),
                       ),
                       const SizedBox(height: 8.0),
-                      const Column(children: [
+                      Column(children: [
                         // Start Detail
                         DetailListCard(
                           keyword: 'Author',
@@ -130,17 +177,17 @@ class ImageDetail extends StatelessWidget {
 
                 // Start  Related Items
                 SizedBox(height: 24),
-                MyListHeader(title: 'Related Items'),
+                MyListHeader(title: 'Related'),
                 Container(
-                  height: 220, // Set a fixed height for horizontal ListView
+                  height: 184, // Set a fixed height for horizontal ListView
                   child: ListView(
                     scrollDirection: Axis.horizontal,
-                    children: const [
-                      ImageCard(),
-                      ImageCard(),
-                      ImageCard(),
-                      ImageCard(),
-                      ImageCard(),
+                    children: [
+                      MyCard(),
+                      MyCard(),
+                      MyCard(),
+                      MyCard(),
+                      MyCard(),
                     ],
                   ),
                 ),
