@@ -29,6 +29,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  
   List<Publication> publications = [];
   bool isLoadingPublication = true;
   bool isLoadingPublicationError = false;
@@ -258,7 +259,7 @@ class _HomePageState extends State<HomePage> {
 
             // Start Publications
             isLoadingPublication
-                ? Container(
+                ? SizedBox(
                     width: double.infinity,
                     height: 100,
                     child: Center(
@@ -311,7 +312,7 @@ class _HomePageState extends State<HomePage> {
 
             // Start Videos
             isLoadingVideo
-                ? Container(
+                ? SizedBox(
                     width: double.infinity,
                     height: 100,
                     child: Center(
@@ -364,7 +365,7 @@ class _HomePageState extends State<HomePage> {
 
             // Start Audios
             isLoadingAudio
-                ? Container(
+                ? SizedBox(
                     width: double.infinity,
                     height: 100,
                     child: Center(
@@ -417,7 +418,7 @@ class _HomePageState extends State<HomePage> {
 
             // Start Images
             isLoadingImage
-                ? Container(
+                ? SizedBox(
                     width: double.infinity,
                     height: 100,
                     child: Center(

@@ -4,8 +4,8 @@ import 'package:http/http.dart' as http;
 import 'package:elibrary/models/publication.dart';
 
 class PublicationService {
-  static Future<List<Publication>> fetchPublications() async {
-    const url = '${Env.baseApiUrl}publications';
+  static Future<List<Publication>> fetchPublications({int page = 1}) async {
+    final url = '${Env.baseApiUrl}publications?page=$page';
     final uri = Uri.parse(url);
     final response = await http.get(uri);
 

@@ -20,17 +20,20 @@ class _MainPageState extends State<MainPage> {
     });
   }
 
-  List<Widget> pages = [
-    HomePage(),
-    CategoryPage(),
-    FavoritePage(),
-    AccountPage(),
+  final List<Widget> _pages = [
+    const HomePage(),
+    const CategoryPage(),
+    const FavoritePage(),
+    const AccountPage(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: pages[_selectedIndex],
+      body: IndexedStack(
+        index: _selectedIndex,
+        children: _pages,
+      ),
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(
